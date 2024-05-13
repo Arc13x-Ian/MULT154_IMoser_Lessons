@@ -79,12 +79,17 @@ public class C_PlayerMover : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("Exit"))
+        {
+            NetworkManager networkManager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
+            networkManager.ServerChangeScene("ForestLevel");
+        }
 
 
 
     }
 
-   
+
 
     private void OnTriggerExit(Collider other)
     {
